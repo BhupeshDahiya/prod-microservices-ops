@@ -1,17 +1,17 @@
 variable "aws_region" {
-    type = string
-    default = "us-east-1"
+  type    = string
+  default = "us-east-1"
 }
 
 variable "env_name" {
-  type = string
+  type    = string
   default = "dev"
 }
 
 variable "tags" {
   description = "Global tags to apply to all resources"
   type        = map(string)
-  default     = {
+  default = {
     Terraform = "true"
   }
 }
@@ -19,12 +19,12 @@ variable "tags" {
 # vpc vars
 
 variable "cidr_block" {
-    type = string
-    default = "10.0.0.0/16"
+  type    = string
+  default = "10.0.0.0/16"
 }
 
 variable "subnet_newbits" {
-    type = number
-    default = 8
+  type    = number
+  default = 8
 }
 
