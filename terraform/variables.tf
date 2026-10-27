@@ -28,3 +28,20 @@ variable "subnet_newbits" {
   default = 8
 }
 
+# eks vars
+
+variable "cluster_name" {
+  type    = string
+  default = "main_cluster"
+}
+
+variable "cluster_version" {
+  type    = string
+  default = "1.37"
+}
+
+variable "principal_arn" {
+  description = "arn of the iam role which we are giving eks access to"
+  type    = string
+  default = "arn:aws:iam::350235531576:user/vpro-gitops"
+}
