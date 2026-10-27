@@ -37,7 +37,12 @@ resource "aws_subnet" "pub_sub" {
   cidr_block              = each.value
   availability_zone       = each.key
   map_public_ip_on_launch = true
-  tags                    = merge(var.tags, { Name = "${var.env_name}-pub-sub-${each.key}" })
+  tags = merge(var.tags, {
+    Name                                 = "${var.env_name}-pub-sub-${each.key}"
+    "kubernetes.io/cluster/cluster-name" = "shared"
+    "kubernetes.io/role/elb"             = "1"
+    }
+  )
 }
 
 # PVT SUB
@@ -47,7 +52,12 @@ resource "aws_subnet" "pvt_sub" {
   vpc_id            = aws_vpc.main.id
   cidr_block        = each.value
   availability_zone = each.key
-  tags              = merge(var.tags, { Name = "${var.env_name}-pvt-sub-${each.key}" })
+  tags = merge(var.tags, {
+    Name                                 = "${var.env_name}-pvt-sub-${each.key}"
+    "kubernetes.io/cluster/cluster-name" = "shared"
+    "kubernetes.io/role/internal-elb "   = "1"
+    }
+  )
 }
 
 # PUB RT

@@ -42,6 +42,6 @@ variable "cluster_version" {
 
 variable "principal_arn" {
   description = "arn of the iam role which we are giving eks access to"
-  type    = string
-  default = "arn:aws:iam::350235531576:user/vpro-gitops"
+  type        = string
+  default     = "arn:aws:iam::350235531576:user/vpro-gitops"
 }
