@@ -64,7 +64,7 @@ variable "capacity_type" {
 
 variable "ami_type" {
   type    = string
-  default = "ami-064e0fb2e5d705dc8"
+  default = "AL2023_x86_64_STANDARD"
 }
 
 variable "instance_types" {

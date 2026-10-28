@@ -1,5 +1,5 @@
 resource "aws_eks_node_group" "main_cluster_node_group" {
-  cluster_name         = var.cluster_name
+  cluster_name         = aws_eks_cluster.main_cluster.name # didnt use var so as to create a direct dependency on cluster so that cluster is created first and then nodes are created
   node_group_name      = var.node_group_name
   node_role_arn        = aws_iam_role.node_group_role.arn
   subnet_ids           = [for subnet in aws_subnet.pvt_sub : subnet.id]

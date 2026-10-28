@@ -45,4 +45,5 @@ resource "aws_eks_access_policy_association" "vpro_access" {
   access_scope {
     type = "cluster"
   }
+  depends_on = [aws_eks_access_entry.vpro_access] # the access entry must exist before we can associate as policy to it
 }
